@@ -2,12 +2,13 @@ import datetime
 
 from rest_framework.generics import ListAPIView, CreateAPIView
 
-from reservation.models import Reservation
+from reservation.models import Reservation, Table
 from reservation.serializers import TableSerializer, ReservedTableSerializer, ReservationSerializer
 
 
 class TableListView(ListAPIView):
     serializer_class = TableSerializer
+    queryset = Table.objects.all()
 
 
 class ReservedTableListView(ListAPIView):
